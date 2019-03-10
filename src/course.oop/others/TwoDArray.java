@@ -12,17 +12,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TwoDArray {
-	int [][] newArray;
+	String [][] newArray;
     int globalRow;
     int globalCol;
-    int globalDefaultValue;
+    String globalDefaultValue;
     int countOfDefault;
-    public TwoDArray(int rows, int cols, int defaultVal){
+    public TwoDArray(int rows, int cols, String defaultVal){
 		/*TODO - Create a 2D integer array consisting of 
 		 * the number of rows and columns given. Initialize 
 		 * the array by setting each int to be the defaulVal. 
 		 * */
-		newArray = new int[rows][cols];
+		newArray = new String[rows][cols];
         globalRow = rows;
         globalCol = cols;
         globalDefaultValue = defaultVal;
@@ -35,7 +35,7 @@ public class TwoDArray {
 
 	}
 	
-	public void initArray(int defaultVal) {
+	public void initArray(String defaultVal) {
         for (int i = 0;i<globalRow;i++){
             for (int j = 0;j<globalCol;j++){
                 newArray [i][j] = defaultVal;
@@ -43,7 +43,7 @@ public class TwoDArray {
         }
 	}
 	
-    public boolean insertInt(int row, int col, int val) {
+    public boolean insertInt(int row, int col, String val) {
 		/*TODO - "Insert" based on the following conditions:
 		 * 1. The location [row][col] is still set to the default value
 		 * 		-return "Success! (val) was inserted."
@@ -58,19 +58,19 @@ public class TwoDArray {
 		 * e.g., replace (val) with val.
 		 */
         
-        if (val == globalDefaultValue){
+        if (val.equals(globalDefaultValue)){
             return false;
             
-        }else if (newArray[row][col] != globalDefaultValue){
+        }else if (!newArray[row][col].equals(globalDefaultValue)){
             return false;
-        }else if (newArray[row][col] == globalDefaultValue){
+        }else if (newArray[row][col].equals(globalDefaultValue)){
             newArray[row][col] = val;
             return true;
         }
 		return false;
 	}
 	
-	public int getInt(int row, int col) {
+	public String getInt(int row, int col) {
 		/*TODO - Return the value at the specified row, col
 		 * 
 		 */
@@ -84,7 +84,7 @@ public class TwoDArray {
             dis = dis + "\n";
             for (int j = 0;j<globalCol;j++){
 
-                dis = dis + Integer.toString(newArray [i][j]) + "\t";
+                dis = dis + newArray [i][j] + "\t";
             }
         }
 

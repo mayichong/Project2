@@ -5,5 +5,7 @@ public class UserPlayer extends Players {
         super(username,marker);
     }
 
-
+    public String markerChoice(String username,String marker){
+        return marker;
+    }
 }

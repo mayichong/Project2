@@ -5,15 +5,16 @@ import course.oop.others.SecondPlayer;
 
 public class TTTControllerImpl {
 
-
-    GameBoard board = new GameBoard(3,3,0);
+    String globalMarker = "1";
+    String compMarker = "C";
+    GameBoard board = new GameBoard(3,3,"0");
     public void startNewGame(int numPlayers, int timeoutInSecs){
 
         //initialize a game board with entry 0
-        board.initArray(0);
+        board.initArray("0");
 
         //check if numplayer is valid or not
-        System.out.println(numPlayers);
+        
         if (numPlayers < 1 || numPlayers > 2){
             System.out.println("Invalid Input. Please try again.");
         }
@@ -36,11 +37,16 @@ public class TTTControllerImpl {
         if (playerNum == 1){
             //create user player
             UserPlayer myself = new UserPlayer(username,marker);
+            globalMarker = myself.markerChoice(username,marker);
 
         }else if (playerNum == 2){
             //create second player
             UserPlayer myself = new UserPlayer(username,marker);
-            SecondPlayer other = new SecondPlayer(username,marker);
+            UserPlayer other = new UserPlayer(username,marker);
+            compMarker = other.markerChoice(username,marker);
+
+
+
         }
 
     }
@@ -66,11 +72,13 @@ public class TTTControllerImpl {
         }
 
         if (currentPlayer == 1){
-            return board.insertInt(row,col,currentPlayer);
+
+            return board.insertInt(row,col,globalMarker);
+
         }
 
         if (currentPlayer == 2){
-            return board.insertInt(row,col,currentPlayer);
+            return board.insertInt(row,col,compMarker);
         }else{
             return false;
         }
@@ -89,7 +97,9 @@ public class TTTControllerImpl {
      * @return
      */
     public int determineWinner(){
-        int hello = board.checkWin();
+
+        int hello = board.checkWin(globalMarker,compMarker);
+
         return hello;
     }
 
@@ -102,7 +112,7 @@ public class TTTControllerImpl {
     public String getGameDisplay(){
 
 
-        System.out.println(board.getArrayDisplay());
+        System.out.println(board.boardDisplay(globalMarker));
         String cool = "";
         return cool;
     }
