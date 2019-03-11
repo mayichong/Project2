@@ -1,26 +1,35 @@
 package course.oop.main;
 import course.oop.controller.TTTControllerImpl;
 import java.util.InputMismatchException;
+import java.io.BufferedReader;
 import java.util.*;
+import java.io.InputStreamReader;
+import java.io.*;
 
 public class TTTDriver {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
         TTTControllerImpl controller = new TTTControllerImpl();
         System.out.println("Welcome to Tic Tac Toe game!\n");
-
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         Scanner input = new Scanner(System.in);
         int a = 1;
         int b = 1;
         String marker1 = "1";
         String marker2 = "2";
-        int rowNum = 0;
+        String coord = "3";
+        String splited []  = new String [3];
+        int rowNum = -1;
         int colNum = 0;
         int rowNum2 = 0;
         int colNum2 = 0;
         int count = 0;
+        boolean getNum = false;
         boolean isOver = false;
         boolean gameOver = false;
         boolean markerSelection = false;
+        boolean notimeout = true;
+        int timeout = 0;
+        long currentTime;
         while (isOver == false){
 
         System.out.println("What game mode would you like to play?\n");
@@ -30,13 +39,15 @@ public class TTTDriver {
         String choice = input.next();
 
             if (choice.equals("1")) {
-                controller.startNewGame(Integer.parseInt(choice),20);
+
                 System.out.println("You want to play against computer.");
+                System.out.println("Please enter time for each player:");
+                timeout = input.nextInt();
+                controller.startNewGame(Integer.parseInt(choice),timeout);
                 System.out.println("Please input your username:");
                 String username = input.next();
 
                 while (markerSelection == false){
-
                 System.out.println("Please input a marker (1 character):");
                 String marker = input.next();
 
@@ -44,50 +55,59 @@ public class TTTDriver {
                     System.out.println("Invalid input. Marker only accepts one character long.");
                 }else{
                     controller.createPlayer(username,marker,1);
-                    System.out.println(username + ", you chose marker " + marker + ", let's begin!");
+                    System.out.println(username + ", you chose marker " + marker + ", you have " + timeout +"seconds to decide each turn, let's begin!");
+
+                 //The game begins!
 
                     while(gameOver == false){
+                        currentTime = System.currentTimeMillis();
                         controller.getGameDisplay();
+                        System.out.println("Please enter the row number and column number with a space in between (for example: X X), 8 to quit):");
+                        getNum = false;
+                        if (timeout <= 0){
+                            notimeout = true;
+                        }else{
+                            notimeout = false;
+                        }
+                                    while(System.currentTimeMillis() - currentTime < timeout*1000 || notimeout == true){
+                                            if (br.ready()){
+                                                coord = br.readLine();
+                                                splited = coord.split("\\s+");
 
-                        while(a == 1){
-                            try{
-                                System.out.print("Please enter the row number (0-2, 8 for quit):");
-                                rowNum = input.nextInt();
-                                break;
-                            }catch (InputMismatchException e){
-                                System.out.println("Invalid Input. Please try again!");
-                                input.next();
+                                                if (splited.length == 1 && splited[0].equals("8")){
+                                                    System.out.println("Quit");
+                                                    System.exit(0);
+                                                }else if (splited.length != 2){
+                                                    System.out.println("Invalid Input. Please try again!");
+                                                    getNum = false;
+                                                }else{
+                                                    try{
+                                                        rowNum = Integer.parseInt(splited[0]);
+                                                        colNum = Integer.parseInt(splited[1]);
+                                                        getNum = true;
+                                                        break;
+                                                    }catch (NumberFormatException e){
+                                                        System.out.println("Not a number");
+                                                        getNum = false;
+                                                    }
+                                                }
+                                            }
+                                    }
+
+
+                        if (controller.setSelection(rowNum,colNum,1) == true || getNum == false){
+                            if (getNum == true) {
+                                count++;
+                                System.out.println("You entered location " + rowNum + ", " + colNum);
+                                controller.setSelection(rowNum, colNum, 1);
+
+                                if (controller.determineWinner() == 1) {
+                                    controller.getGameDisplay();
+                                    System.out.println(username + ", You won!");
+                                    isOver = true;
+                                    break;
+                                }
                             }
-                        }
-
-                        while(b == 1){
-                            try{
-                                System.out.print("Please enter the column number (0-2 8 for quit):");
-                                colNum = input.nextInt();
-                                break;
-                            }catch (InputMismatchException e){
-                                System.out.println("Invalid Input. Please try again!");
-                                input.next();
-                            }
-                        }
-
-                        if (rowNum == 8 || colNum == 8){
-                            System.out.println("You quit the game! Computer won!\n");
-                            isOver = true;
-                            break;
-
-                        }
-                        if (controller.setSelection(rowNum,colNum,1) == true){
-                            count++;
-                            System.out.println("You entered location " + rowNum +", " + colNum);
-                            controller.setSelection(rowNum,colNum,1);
-
-                            if (controller.determineWinner() == 1) {
-                                controller.getGameDisplay();
-                                System.out.println(username + ", You won!");
-                                isOver = true;
-                                break;
-                            }else if (count < 5){
                                 System.out.println("Computer's Turn!");
                                 String computer = controller.please();
                                 char x = computer.charAt(0);
@@ -100,9 +120,9 @@ public class TTTDriver {
                                     controller.getGameDisplay();
                                     System.out.println("Computer won!");
                                     isOver = true;
-                                    break;
+                                    System.exit(0);
                                 }
-                            }
+
 
                             if (controller.determineWinner() == 0){
                                 controller.getGameDisplay();
@@ -117,12 +137,14 @@ public class TTTDriver {
                     }
                     break;
                 }
-
                 }
 
             } else if (choice.equals("2")){
-                controller.startNewGame(Integer.parseInt(choice),20);
+
                 System.out.println("You want to play against another player.");
+                System.out.println("Please enter time for each player:");
+                timeout = input.nextInt();
+                controller.startNewGame(Integer.parseInt(choice),timeout);
                 System.out.println("Please input player1 username:");
                 String player1 = input.next();
 
@@ -158,41 +180,48 @@ public class TTTDriver {
                 controller.createPlayer(player2,marker2,2);
                 System.out.println("Player 1 go first.");
                 while(gameOver == false){
+                    currentTime = System.currentTimeMillis();
                     controller.getGameDisplay();
                     System.out.println("Player 1's turn.");
 
-                    while(a == 1){
-                        try{
-                            System.out.print("Please enter the row number (0-2, 8 for quit):");
-                            rowNum = input.nextInt();
-                            break;
-                        }catch (InputMismatchException e){
-                            System.out.println("Invalid Input. Please try again!");
-                            input.next();
+                    System.out.println("Please enter the row number and column number with a space in between (for example: X X), 8 to quit):");
+                    getNum = false;
+                    if (timeout <= 0){
+                        notimeout = true;
+                    }else{
+                        notimeout = false;
+                    }
+
+                    while(System.currentTimeMillis() - currentTime < timeout*1000 || notimeout == true){
+                        if (br.ready()){
+                            coord = br.readLine();
+                            splited = coord.split("\\s+");
+
+                            if (splited.length == 1 && splited[0].equals("8")){
+                                System.out.println("Quit");
+                                System.exit(0);
+                            }else if (splited.length != 2){
+                                System.out.println("Invalid Input. Please try again!");
+                                getNum = false;
+                            }else{
+                                try{
+                                    rowNum = Integer.parseInt(splited[0]);
+                                    colNum = Integer.parseInt(splited[1]);
+                                    getNum = true;
+                                    break;
+                                }catch (NumberFormatException e){
+                                    System.out.println("Not a number");
+                                    getNum = false;
+                                }
+                            }
                         }
                     }
 
-                    while(b == 1){
-                        try{
-                            System.out.print("Please enter the column number (0-2 8 for quit):");
-                            colNum = input.nextInt();
-                            break;
-                        }catch (InputMismatchException e){
-                            System.out.println("Invalid Input. Please try again!");
-                            input.next();
+                    if (controller.setSelection(rowNum,colNum,1) == true || getNum ==false){
+                        if (getNum == true){
+                            System.out.println("You entered location " + rowNum +", " + colNum);
+                            controller.setSelection(rowNum,colNum,1);
                         }
-                    }
-
-                    if (rowNum == 8 || colNum == 8){
-                        System.out.println("You quit the game! Player 2 won!\n");
-                        System.exit(0);
-
-                    }
-
-                    if (controller.setSelection(rowNum,colNum,1) == true){
-                        count++;
-                        System.out.println("You entered location " + rowNum +", " + colNum);
-                        controller.setSelection(rowNum,colNum,1);
 
                         if (controller.determineWinner() == 1) {
                             controller.getGameDisplay();
@@ -210,39 +239,47 @@ public class TTTDriver {
                             while (gameOver == false){
                                 controller.getGameDisplay();
                                 System.out.println("Player2's turn.");
+                                currentTime = System.currentTimeMillis();
+                                System.out.println("Please enter the row number and column number with a space in between (for example: X X), 8 to quit):");
+                                getNum = false;
+                                if (timeout <= 0){
+                                    notimeout = true;
+                                }else{
+                                    notimeout = false;
+                                }
 
+                                while(System.currentTimeMillis() - currentTime < timeout*1000 || notimeout == true){
+                                    if (br.ready()){
+                                        coord = br.readLine();
+                                        splited = coord.split("\\s+");
 
-                                while(a == 1){
-                                    try{
-                                        System.out.print("Please enter the row number (0-2, 8 for quit):");
-                                        rowNum2 = input.nextInt();
-                                        break;
-                                    }catch (InputMismatchException e){
-                                        System.out.println("Invalid Input. Please try again!");
-                                        input.next();
+                                        if (splited.length == 1 && splited[0].equals("8")){
+                                            System.out.println("Quit");
+                                            System.exit(0);
+                                        }else if (splited.length != 2){
+                                            System.out.println("Invalid Input. Please try again!");
+                                            getNum = false;
+                                        }else{
+                                            try{
+                                                rowNum = Integer.parseInt(splited[0]);
+                                                colNum = Integer.parseInt(splited[1]);
+                                                getNum = true;
+                                                break;
+                                            }catch (NumberFormatException e){
+                                                System.out.println("Not a number");
+                                                getNum = false;
+                                            }
+                                        }
                                     }
                                 }
 
-                                while(b == 1){
-                                    try{
-                                        System.out.print("Please enter the column number (0-2 8 for quit):");
-                                        colNum2 = input.nextInt();
-                                        break;
-                                    }catch (InputMismatchException e){
-                                        System.out.println("Invalid Input. Please try again!");
-                                        input.next();
+
+                                if (controller.setSelection(rowNum,colNum,2) == true || getNum ==false){
+                                    if (getNum == true){
+                                        System.out.println("You entered location " + rowNum2 +", " + colNum2);
+                                        controller.setSelection(rowNum,colNum,2);
                                     }
-                                }
 
-                                if (rowNum == 8 || colNum == 8){
-                                    System.out.println("You quit the game! Player 1 won!\n");
-                                    System.exit(0);
-
-                                }
-
-                                if (controller.setSelection(rowNum2,colNum2,2) == true){
-                                    System.out.println("You entered location " + rowNum2 +", " + colNum2);
-                                    controller.setSelection(rowNum2,colNum2,2);
                                     if (controller.determineWinner() == 2){
                                         controller.getGameDisplay();
                                         System.out.println(player2 +", you won!");
