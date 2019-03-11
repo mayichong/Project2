@@ -101,5 +101,22 @@ public class GameBoard extends TwoDArray{
     return dis;
     }
 
+    public boolean checkFull(){
+        int count = 0;
+        for (int i =0;i<3;i++){
+            for (int j = 0;j<3;j++){
+                if (!getInt(i,j).equals("0")){
+                    count++;
+                }
+            }
+        }
+        if (count == 9){
+            return true;
+        }
+        else
+            return false;
+
+    }
+
 }
 

@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5772ef35-be25-4f14-b481-a29b93eecc2f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/COPProject/course/oop/controller/TTTControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COPProject/course/oop/controller/TTTControllerImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/COPProject/course/oop/main/TTTDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COPProject/course/oop/main/TTTDriver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/COPProject/course/oop/others/GameBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/COPProject/course/oop/others/GameBoard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/course.oop/controller/TTTControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.oop/controller/TTTControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/course.oop/main/TTTDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.oop/main/TTTDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/course.oop/others/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.oop/others/GameBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/course.oop/others/GameBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.oop/others/GameBoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/course.oop/others/SecondPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.oop/others/SecondPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/course.oop/others/TwoDArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.oop/others/TwoDArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/course.oop/others/UserPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/course.oop/others/UserPlayer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,7 +21,7 @@
         <entry file="file://$PROJECT_DIR$/src/course.oop/others/SecondPlayer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+              <caret column="26" selection-start-column="26" selection-end-column="26" />
               <folding>
                 <element signature="e#127#128#0" expanded="true" />
                 <element signature="e#165#166#0" expanded="true" />
@@ -60,8 +54,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/course.oop/others/GameBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="207">
+              <caret line="103" column="29" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -69,10 +63,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/course.oop/controller/TTTControllerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            <state relative-caret-position="449">
+              <caret line="126" column="33" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2993#2994#0" expanded="true" />
+                <element signature="e#3025#3026#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,8 +92,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/course.oop/main/TTTDriver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+            <state relative-caret-position="793">
+              <caret line="272" column="1" lean-forward="true" selection-start-line="272" selection-start-column="1" selection-end-line="272" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/course.oop/others/TwoDArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1012">
-              <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
+            <state relative-caret-position="943">
+              <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -155,9 +151,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -217,7 +213,7 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552254033266" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552258388479" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -322,7 +318,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
@@ -332,13 +328,13 @@
       <window_info id="Image Layers" order="4" />
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.24920128" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32993197" />
       <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.5005325" side_tool="true" weight="0.37623763" />
       <window_info anchor="bottom" id="Messages" order="2" weight="0.21584159" />
-      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32993197" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" weight="0.32909605" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49946752" visible="true" weight="0.26831684" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49946752" visible="true" weight="0.02970297" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -413,24 +409,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/course.oop/others/TwoDArray.java">
+    <entry file="file://$PROJECT_DIR$/src/course.oop/others/Players.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="67" column="24" lean-forward="true" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/course.oop/others/SecondPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
-          <folding>
-            <element signature="e#127#128#0" expanded="true" />
-            <element signature="e#165#166#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -444,10 +426,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/course.oop/others/Players.java">
+    <entry file="file://$PROJECT_DIR$/src/course.oop/others/SecondPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+          <folding>
+            <element signature="e#127#128#0" expanded="true" />
+            <element signature="e#165#166#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/course.oop/others/TwoDArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="96" column="20" selection-start-line="96" selection-start-column="20" selection-end-line="96" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -464,27 +460,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/course.oop/others/GameBoard.java">
+    <entry file="file://$PROJECT_DIR$/src/course.oop/controller/TTTControllerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="449">
+          <caret line="126" column="33" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2993#2994#0" expanded="true" />
+            <element signature="e#3025#3026#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/course.oop/controller/TTTControllerImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/course.oop/others/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="207">
+          <caret line="103" column="29" selection-start-line="103" selection-start-column="29" selection-end-line="103" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/course.oop/main/TTTDriver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="41" column="24" selection-start-line="41" selection-start-column="24" selection-end-line="41" selection-end-column="24" />
+        <state relative-caret-position="793">
+          <caret line="272" column="1" lean-forward="true" selection-start-line="272" selection-start-column="1" selection-end-line="272" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

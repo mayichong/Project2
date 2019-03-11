@@ -14,7 +14,7 @@ public class TTTControllerImpl {
         board.initArray("0");
 
         //check if numplayer is valid or not
-        
+
         if (numPlayers < 1 || numPlayers > 2){
             System.out.println("Invalid Input. Please try again.");
         }
@@ -123,5 +123,7 @@ public class TTTControllerImpl {
         return lol;
     }
 
-
+    public boolean checkFullOrNot(){
+        return board.checkFull();
+    }
 }
