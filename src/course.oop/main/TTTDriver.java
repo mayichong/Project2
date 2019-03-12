@@ -69,7 +69,7 @@ public class TTTDriver {
                     }
                     else{
                         controller.createPlayer(username,marker,1);
-                        System.out.println(username + ", you chose marker " + marker + ", you have " + timeout +"seconds to decide each turn, let's begin!");
+                        System.out.println(username + ", you chose marker " + marker + ", you have " + timeout +" seconds to decide each turn, let's begin!");
 
                         //The game begins!
 
@@ -89,7 +89,7 @@ public class TTTDriver {
                                     splited = coord.split("\\s+");
 
                                     if (splited.length == 1 && splited[0].equals("8")){
-                                        System.out.println("Quit");
+                                        System.out.println("You quit the game. Computer won!");
                                         System.exit(0);
                                     }else if (splited.length != 2){
                                         System.out.println("Invalid Input. Please try again!");
@@ -101,7 +101,7 @@ public class TTTDriver {
                                             getNum = true;
                                             break;
                                         }catch (NumberFormatException e){
-                                            System.out.println("Not a number");
+                                            System.out.println("Not a number, Please try again!");
                                             getNum = false;
                                         }
                                     }
@@ -230,7 +230,7 @@ public class TTTDriver {
                             splited = coord.split("\\s+");
 
                             if (splited.length == 1 && splited[0].equals("8")){
-                                System.out.println("Quit");
+                                System.out.println("You quit the game. Player 2 won!");
                                 System.exit(0);
                             }else if (splited.length != 2){
                                 System.out.println("Invalid Input. Please try again!");
@@ -242,7 +242,7 @@ public class TTTDriver {
                                     getNum = true;
                                     break;
                                 }catch (NumberFormatException e){
-                                    System.out.println("Not a number");
+                                    System.out.println("Not a number. Please try again!");
                                     getNum = false;
                                 }
                             }
@@ -286,7 +286,7 @@ public class TTTDriver {
                                         splited = coord.split("\\s+");
 
                                         if (splited.length == 1 && splited[0].equals("8")){
-                                            System.out.println("Quit");
+                                            System.out.println("You quit the game. Player 1 won!");
                                             System.exit(0);
                                         }else if (splited.length != 2){
                                             System.out.println("Invalid Input. Please try again!");
